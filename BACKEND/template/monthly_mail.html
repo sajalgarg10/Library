@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+    <p style="font-size: large;">Hello <b>{{data["name"]}}</b> !</p>
+    <article id="content">
+        <p>Here is your monthly report.</p><br>
+        {% if data["data"]|length == 0 %}
+            <p>You Have not read any book in last month</p>    
+        {% endif %}
+        {% if data["data"]|length > 0 %}
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Book Tilte</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book_data in data["data"] %}
+                    <tr>
+                        <td>{{book_data}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+    </article>
+    <P>If you have any query, please contact us.</P>
+    <p style="color:blue">Thanks & Regards</p>
+    <p style="color:blue">Library Team</p>  
+</body>
+</html>
